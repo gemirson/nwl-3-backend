@@ -1,13 +1,14 @@
-import express from 'express'
-import routes from './routes';
-import cors  from 'cors';
+import express from "express";
+import routes from "./routes";
+import cors from "cors";
 const app = express();
 
-app.use(cors())
-app.use(express.json())
-app.use(routes)
+import "./database/connection";
 
-app.listen(3434, ()=>{
+app.use(cors());
+app.use(express.json());
+app.use(routes);
 
-    console.log('[Server]',"Server running")
+app.listen(3434, () => {
+  console.log("[Server]", "Server running");
 });
