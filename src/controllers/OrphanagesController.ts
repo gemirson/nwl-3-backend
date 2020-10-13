@@ -2,16 +2,16 @@ import { Response, Request } from "express";
 import { getRepository } from "typeorm";
 
 import Orphanage from "../models/Orphanages";
-import { constants } from "http2";
 
-export default class OphanagesControlller {
+
+export default  {
   async index(req: Request, res: Response) {
     const orphanageRepository = getRepository(Orphanage);
 
     const orphanage = orphanageRepository.find();
 
     return res.json(orphanage);
-  }
+  },
 
   async show(req: Request, res: Response) {
     const { id } = req.params;
@@ -21,7 +21,7 @@ export default class OphanagesControlller {
     const orphanage = orphanageRepository.findOneOrFail(id);
 
     return res.json(orphanage);
-  }
+  },
 
   async create(req: Request, res: Response) {
     const {

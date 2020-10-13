@@ -3,18 +3,8 @@ import OrphanagesController from "./controllers/OrphanagesController";
 
 const routes = express.Router();
 
-const orphanagesControlller = new OrphanagesController();
-const connectionsController = new ConnectionControlller();
-
-interface ScheduleItem {
-  week_day: number;
-  from: string;
-  to: string;
-}
-
-routes.post("/classes", orphanagesController.create);
-routes.get("/orphanage", classesControlller.index);
-routes.post("/connections", connectionsController.create);
-routes.get("/connections", connectionsController.index);
+routes.post("/orphanage", OrphanagesController.create);
+routes.get("/orphanage", OrphanagesController.index);
+routes.get("/orphanage/id:", OrphanagesController.show);
 
 export default routes;
