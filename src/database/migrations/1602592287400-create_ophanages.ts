@@ -4,7 +4,7 @@ export class createOphanages1602592287400 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "ophanages",
+        name: "Orphanages",
         columns: [
           {
             name: "id",
@@ -39,7 +39,11 @@ export class createOphanages1602592287400 implements MigrationInterface {
             type: "text"
           },
           {
-            name: "open_on_weekends",
+            name: "opening_hours",
+            type: "text"
+          },
+          {
+            name: "opening_on_weekends",
             type: "boolean",
             default: false
           }
@@ -49,6 +53,6 @@ export class createOphanages1602592287400 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("ophanages");
+    await queryRunner.dropTable("Orphanages");
   }
 }

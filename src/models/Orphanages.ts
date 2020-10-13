@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("ophanages")
-export default class Ophanage {
+@Entity("Orphanages")
+export default class Orphanage {
   @PrimaryGeneratedColumn("uuid")
   id: number;
 
@@ -24,5 +24,5 @@ export default class Ophanage {
   opening_hours: string;
 
   @Column()
-  open_on_weekends: boolean;
+  opening_on_weekends: boolean;
 }
