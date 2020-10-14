@@ -4,7 +4,7 @@ export class createOphanages1602592287400 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "Orphanages",
+        name: "orphanages",
         columns: [
           {
             name: "id",
@@ -12,7 +12,7 @@ export class createOphanages1602592287400 implements MigrationInterface {
             unsigned: true,
             isPrimary: true,
             isGenerated: true,
-            generationStrategy: "uuid"
+            generationStrategy: "increment"
           },
           {
             name: "name",
@@ -53,6 +53,6 @@ export class createOphanages1602592287400 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("Orphanages");
+    await queryRunner.dropTable("orphanages");
   }
 }
